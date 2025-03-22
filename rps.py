@@ -19,6 +19,16 @@ def checkwin(Player, Computer):
             return "Rock destroys scissors. You Win!"
         elif Computer == "paper":
             return "Paper beats Rock. You lose STUPID!"
+    elif Player == "scissors":
+        if Computer == "paper":
+            return "scissors cuts paper. You Win!"
+        elif Computer == "rock":
+            return "Rock destroys scissors. You lose STUPID!"
+    elif Player == "paper":
+        if Computer == "rock":
+            return "Paper beats Rock. You Win!"
+        elif Computer == "scissors":
+            return "scissors cuts paper. You lose STUPID!"
 
 
 # Prints the welcome message
