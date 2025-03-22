@@ -15,21 +15,12 @@ def checkwin(Player, Computer):
     print(f"You chose {Player}, the computer chose {Computer}")
     if Player == Computer:
         return "Draw"
-    elif Player == "rock":
-        if Computer == "scissors":
-            return "Rock destroys scissors. You Win!"
-        elif Computer == "paper":
-            return "Paper beats Rock. You lose STUPID!"
-    elif Player == "scissors":
-        if Computer == "paper":
-            return "scissors cuts paper. You Win!"
-        elif Computer == "rock":
-            return "Rock destroys scissors. You lose STUPID!"
-    elif Player == "paper":
-        if Computer == "rock":
-            return "Paper beats Rock. You Win!"
-        elif Computer == "scissors":
-            return "scissors cuts paper. You lose STUPID!"
+    elif Player == "rock" and Computer == "scissors" or \
+    Player == "scissors" and Computer == "paper" or \
+    Player == "paper" and Computer == "rock":
+        return f"{Player} beats {Computer} You Win!"
+    else:
+        return f"{Computer} beats {Player} You lose STUPID!"
 
 
 # Prints the welcome message
