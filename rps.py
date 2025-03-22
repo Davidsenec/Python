@@ -5,7 +5,7 @@ def getchoice():
     p_choice = input("Choose your weapon!:")
     options = ["rock", "paper", "scissors"]
     c_choice = random.choice(options)
-    choices =  {"Player:":p_choice, "Computer:":c_choice}
+    choices =  {"Player":p_choice, "Computer":c_choice}
 
     return choices  
 
@@ -36,7 +36,9 @@ print("Welcome to Rock Paper Scissors!")
 
 # Asks the player for their choice
 choices = getchoice()
+# calls the win condition function
+result = checkwin(choices["Player"], choices["Computer"])
 
-# Prints what the player chose along with the computer
+# Prints what the player chose along with the computer and who wins
 print(choices)
-checkwin("rock", "scissors")
+print(result)
