@@ -12,6 +12,8 @@ def getchoice():
     
     c_choice = random.choice(options)
     choices =  {"Player":p_choice, "Computer":c_choice}
+    
+    return choices
 
 # A function that checks if the player wins or loses
 def checkwin(Player, Computer):
