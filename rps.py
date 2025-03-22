@@ -25,7 +25,7 @@ def checkwin(Player, Computer):
     Player == "paper" and Computer == "rock":
         return f"{Player} beats {Computer} You Win!"
     else:
-        return f"{Computer} beats {Player} You lose STUPID!"
+        return f"{Computer} beats {Player} You Lose STUPID!"
 
 
 # Prints the welcome message
