@@ -2,12 +2,13 @@ import random
 
 # A function that asks the player for their choice
 def getchoice():
-    p_choice = input("Choose your weapon!:")
+    p_choice = input("Choose your weapon!:").strip().lower()
     options = ["rock", "paper", "scissors"]
-    c_choice = random.choice(options)
-    choices =  {"Player":p_choice, "Computer":c_choice}
 
-    return choices  
+    # validates the input
+    while p_choice not in options:
+        print("Invalid input. Try again.")
+        p_choice = input("Choose your weapon!:").strip().lower()
 
 # A function that checks if the player wins or loses
 def checkwin(Player, Computer):
