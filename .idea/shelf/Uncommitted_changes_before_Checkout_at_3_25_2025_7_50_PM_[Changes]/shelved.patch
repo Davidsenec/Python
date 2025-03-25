@@ -1,0 +1,58 @@
+Index: rps.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import random\r\n\r\n# A function that asks the player for their choice\r\ndef getchoice():\r\n    p_choice = input(\"Choose your weapon!:\").strip().lower()\r\n    options = [\"rock\", \"paper\", \"scissors\"]\r\n\r\n    # validates the input\r\n    while p_choice not in options:\r\n        print(\"Invalid input. Try again.\")\r\n        p_choice = input(\"Choose your weapon!:\").strip().lower()\r\n    \r\n    c_choice = random.choice(options)\r\n    choices =  {\"Player\":p_choice, \"Computer\":c_choice}\r\n    \r\n    return choices\r\n\r\n# A function that checks if the player wins or loses\r\ndef checkwin(Player, Computer):\r\n    print(f\"You chose {Player}, the computer chose {Computer}\")\r\n    if Player == Computer:\r\n        return \"Draw\"\r\n    elif Player == \"rock\" and Computer == \"scissors\" or \\\r\n    Player == \"scissors\" and Computer == \"paper\" or \\\r\n    Player == \"paper\" and Computer == \"rock\":\r\n        return f\"{Player} beats {Computer} You Win!\"\r\n    else:\r\n        return f\"{Computer} beats {Player} You Lose STUPID!\"\r\n\r\n\r\n# Prints the welcome message\r\nprint(\"Welcome to Rock Paper Scissors!\")\r\n\r\n# Asks the player for their choice\r\nchoices = getchoice()\r\n# calls the win condition function\r\nresult = checkwin(choices[\"Player\"], choices[\"Computer\"])\r\n\r\n# Prints what the player chose along with the computer and who wins\r\nprint(choices)\r\nprint(result)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/rps.py b/rps.py
+--- a/rps.py	(revision 69f404301179b957ecc082117b3d002cbf7c5f9b)
++++ b/rps.py	(date 1742906947840)
+@@ -1,5 +1,6 @@
+ import random
+ 
++
+ # A function that asks the player for their choice
+ def getchoice():
+     p_choice = input("Choose your weapon!:").strip().lower()
+@@ -9,20 +10,21 @@
+     while p_choice not in options:
+         print("Invalid input. Try again.")
+         p_choice = input("Choose your weapon!:").strip().lower()
+-    
++
+     c_choice = random.choice(options)
+-    choices =  {"Player":p_choice, "Computer":c_choice}
+-    
+-    return choices
++    player_choices = {"Player": p_choice, "Computer": c_choice}
++
++    return player_choices
+ 
++
+ # A function that checks if the player wins or loses
+-def checkwin(Player, Computer):
++def check_win(Player, Computer):
+     print(f"You chose {Player}, the computer chose {Computer}")
+     if Player == Computer:
+         return "Draw"
+     elif Player == "rock" and Computer == "scissors" or \
+-    Player == "scissors" and Computer == "paper" or \
+-    Player == "paper" and Computer == "rock":
++            Player == "scissors" and Computer == "paper" or \
++            Player == "paper" and Computer == "rock":
+         return f"{Player} beats {Computer} You Win!"
+     else:
+         return f"{Computer} beats {Player} You Lose STUPID!"
+@@ -34,8 +36,8 @@
+ # Asks the player for their choice
+ choices = getchoice()
+ # calls the win condition function
+-result = checkwin(choices["Player"], choices["Computer"])
++result = check_win(choices["Player"], choices["Computer"])
+ 
+ # Prints what the player chose along with the computer and who wins
+ print(choices)
+-print(result)
+\ No newline at end of file
++print(result)
