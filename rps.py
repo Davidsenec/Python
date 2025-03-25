@@ -1,5 +1,6 @@
 import random
 
+
 # A function that asks the player for their choice
 def getchoice():
     p_choice = input("Choose your weapon!:").strip().lower()
@@ -11,29 +12,30 @@ def getchoice():
         p_choice = input("Choose your weapon!:").strip().lower()
 
     c_choice = random.choice(options)
-    choices =  {"Player":p_choice, "Computer":c_choice}
+    player_choices = {"Player": p_choice, "Computer": c_choice}
 
-    return choices  
+    return player_choices
+
 
 # A function that checks if the player wins or loses
-def checkwin(Player, Computer):
-    print(f"You chose {Player}, the computer chose {Computer}")
-    if Player == Computer:
+def check_win(player, computer):
+    print(f"You chose {player}, the computer chose {computer}")
+    if player == computer:
         return "Draw"
-    elif Player == "rock":
-        if Computer == "scissors":
+    elif player == "rock":
+        if computer == "scissors":
             return "Rock destroys scissors. You Win!"
-        elif Computer == "paper":
+        elif computer == "paper":
             return "Paper beats Rock. You lose STUPID!"
-    elif Player == "scissors":
-        if Computer == "paper":
+    elif player == "scissors":
+        if computer == "paper":
             return "scissors cuts paper. You Win!"
-        elif Computer == "rock":
+        elif computer == "rock":
             return "Rock destroys scissors. You lose STUPID!"
-    elif Player == "paper":
-        if Computer == "rock":
+    elif player == "paper":
+        if computer == "rock":
             return "Paper beats Rock. You Win!"
-        elif Computer == "scissors":
+        elif computer == "scissors":
             return "scissors cuts paper. You lose STUPID!"
 
 
@@ -43,7 +45,7 @@ print("Welcome to Rock Paper Scissors!")
 # Asks the player for their choice
 choices = getchoice()
 # calls the win condition function
-result = checkwin(choices["Player"], choices["Computer"])
+result = check_win(choices["Player"], choices["Computer"])
 
 # Prints what the player chose along with the computer and who wins
 print(choices)
