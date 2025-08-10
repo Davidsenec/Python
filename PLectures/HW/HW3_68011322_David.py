@@ -1,4 +1,4 @@
-# # Q1
+# Q1
 
 name = input("Enter employee's name: ")
 hours = float(input("Enter number of hours worked in a week: "))
@@ -10,7 +10,7 @@ stax = float(input("Enter state tax withholding rate: "))
 gross_pay = hours * pay_rate
 federal_withholding = gross_pay * ftax
 state_withholding = gross_pay * stax
-total_d = federal_withholding + state_withholding
+total_d = float(federal_withholding + state_withholding)
 net_pay = gross_pay - total_d
 
 print("Employee Name:", name)
@@ -18,10 +18,10 @@ print("Hours Worked:", hours)
 print("Pay Rate: $", pay_rate)
 print("Gross Pay: $", (gross_pay))
 print("Deductions:")
-print(f"  Federal Withholding ({ftax * 100.0}%): $", (federal_withholding))
-print(f"  State Withholding({stax * 100.0}%): $", (state_withholding))
-print("  Total Deduction: $", (total_d))
-print("Net Pay: $", net_pay)
+print(f"  Federal Withholding ({ftax * 100.0}%): $ {federal_withholding:.2f}")
+print(f"  State Withholding({stax * 100.0}%): $ {state_withholding:.2f}")
+print(f"  Total Deduction: $ {total_d:.2f}")
+print(f"Net Pay: $ {net_pay:.2f}")
 
 # Q2 
 n = input("Enter a number: ")
@@ -37,7 +37,7 @@ for i in range(5):
     t.right(144)
 t.done()
 
-# Q4
+Q4
 import turtle as t
 t.speed(100)
 radius = int(input("Enter the radius of the rings: "))
@@ -86,5 +86,26 @@ t.done()
 
 # Q5
 import turtle as t
+import math
 t.speed(1)
+
+# Get input points
+x1, y1, x2, y2, x3, y3 = map(float, input("Enter the three points of the triangle (x1,y1,x2,y2,x3,y3): ").split())
+
+# Fixed area formula with proper multiplication operators *
+area = 0.5 * abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2))
+
+points = [(x1,y1), (x2,y2), (x3,y3)]
+t.penup()
+t.goto(points[0])
+t.pendown()
+for point in points[1:]:
+    t.goto(point)
+t.goto(points[0])
+t.penup()
+t.goto(0,-100)
+t.pendown()
+t.write(f"Area = {area}")
+t.hideturtle()
+t.done()
 
